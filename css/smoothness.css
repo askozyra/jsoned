@@ -1,0 +1,81 @@
+*{
+  transition: color var(--animation-speed);
+}
+
+body{
+  transition: background-color var(--animation-speed);
+}
+
+#menu-burger > span{
+  transition: background-color .5s;
+}
+
+.popup_content-show{
+  animation-timing-function: linear;
+  animation-duration: .2s;
+}
+.popup_content-hide{
+  animation-timing-function: linear;
+  animation-duration: .2s;
+}
+.popup-show{
+  animation-timing-function: linear;
+  animation-duration: .2s;
+}
+.popup-hide{
+  animation-timing-function: linear;
+  animation-duration: .2s;
+}
+
+.menu-popup-show{
+  transition: opacity .2s;
+}
+
+.menu-popup-hide{
+  transition: opacity .2s, visibility 0s linear .2s;
+}
+
+.rope-hidden{
+  transition: visibility .3s, opacity .3s;
+}
+
+.color_theme_item{
+  transition: var(--animation-speed);
+}
+
+#text_editor, #converter_arrows, #json_viewer{
+  transition: background-color .5s;
+}
+
+.card_item, #add_card_item{
+  transition: var(--animation-speed);
+}
+
+.link{
+  transition: var(--animation-speed);
+}
+
+.btn-hide{
+  transition: opacity var(--animation-speed), transform var(--animation-speed), visibility var(--animation-speed);
+}
+
+.btn-show{
+  transition: opacity var(--animation-speed), transform var(--animation-speed), background-color var(--animation-speed), box-shadow var(--animation-speed);
+}
+
+.btn-crack{
+  transition: visibility .3s, opacity .3s;
+}
+
+.card_controls{
+  transition: opacity .5s;
+}
+
+.auth_message-show {
+  animation-timing-function: linear;
+  animation-duration: .2s;
+}
+
+.auth_message-hide {
+  animation-duration: .2s;
+}

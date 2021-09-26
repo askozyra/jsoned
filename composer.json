@@ -1,0 +1,12 @@
+{
+    "name": "acer/jsoned",
+    "authors": [
+        {
+            "name": "askozyra",
+            "email": "khnu2019@gmail.com"
+        }
+    ],
+    "require": {
+        "justinrainbow/json-schema": "^5.2"
+    }
+}

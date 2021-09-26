@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^edit/(\d+)$ docs/editor/?index=$1 [L,QSA,NC]
+RewriteRule ^drafts$ docs/drafts/ [L,QSA,NC]
+RewriteRule ^posts$ docs/posts/ [L,QSA,NC]
+RewriteRule ^me$ docs/personal/ [L,QSA,NC]
+RewriteRule ^api_settings$ docs/api_settings/ [L,QSA,NC]
+
+RewriteRule ^get_config$ public_config.php [L,QSA,NC]
+RewriteRule ^get_status$ get_status.php [L,QSA,NC]
+
+RewriteRule ^login$ docs/auth/login.php [L,QSA,NC]
+RewriteRule ^registration$ docs/auth/registration.php [L,QSA,NC]
+RewriteRule ^password_restoring$ docs/auth/restore_password.php [L,QSA,NC]
+
+RewriteRule ^functions/login$ docs/auth/functions/login.php [L,QSA,NC]
+RewriteRule ^functions/register$ docs/auth/functions/register.php [L,QSA,NC]
+RewriteRule ^functions/restore$ docs/auth/functions/restore.php [L,QSA,NC]
+RewriteRule ^functions/api_token_handler$ docs/api_settings/api_token_handler.php [L,QSA,NC]
+RewriteRule ^functions/([a-z0-9/]+)$ functions/?query=$1 [L,QSA,NC] 

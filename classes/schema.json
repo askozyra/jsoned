@@ -1,0 +1,33 @@
+{
+  "description": "Document schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "title",
+    "author",
+    "visibility",
+    "payload"
+  ],
+  "properties": {
+    "title": {
+      "description": "Title of the document",
+      "type": "string"
+    },
+    "author": {
+      "description": "Author of the document",
+      "type": "string"
+    },
+    "visibility": {
+      "description": "Visibility of the document on the common platform",
+      "type": "string",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "payload": {
+      "description": "User's JSON",
+      "type": "object"
+    }
+  }
+}
