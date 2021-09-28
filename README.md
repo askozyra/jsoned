@@ -87,42 +87,53 @@ Get the project:
 
 1. Create db named `json_db` (tmp step, it will be removed later).
 
-2. Create three tables with prefix which is listed in `config.php`:
+2. Create three tables with prefix which are listed in `config.php`:
 
-  * `PREFIX_users fields:` ([structure in photo](https://user-images.githubusercontent.com/72695696/134938392-362d0e01-2098-489c-9879-1c9f96a486b0.png))
-    * login - varchar(60)
-    * password - varchar(120)
-    * description - varchar(255), nullable
-    * email - varchar(65), nullable
-    * registerAt - datetime, default: CURRENT_TIMESTAMP
-    * lastEntrance - datetime, default: CURRENT_TIMESTAMP
-    * authId - varchar(255), nullable
-    * salt - varchar(8), nullable
-    * api_token_docs - varchar(256), nullable
-    * api_token_users - varchar(256), nullable
-    * 
-* `PREFIX_user_settings fields:` ([structure in photo](https://user-images.githubusercontent.com/72695696/134938857-ca85008c-106e-4a1f-80c9-5338cecf4dd1.png))
-    * user_login - varchar(60)
-    * count_of_docs - int
-    * smoothness_of_anims - tinyint(1)
+  * `PREFIX_users structure:`
+  
+| NAME | TYPE | ATTRIBUTES | NULL | DEFAULT | EXTRA |
+|:-----|:-----|:-----------|:-----|:--------|:------|
+| login | varchar(60) || No | None ||
+| password | varchar(120) || No | None ||
+| description | varchar(255) || Yes | NULL ||
+| email | varchar(65) || Yes | NULL ||
+| registerAt | datetime || No | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| lastEntrance | datetime || No | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| authId | varchar(255) || Yes | NULL ||
+| salt | varchar(8) || Yes | NULL ||
+| api_token_docs | varchar(256) || Yes | NULL ||
+| api_token_users | varchar(256) || Yes | NULL ||
 
-* `PREFIX_documents fields:` ([structure in photo](https://user-images.githubusercontent.com/72695696/134938961-5e590c77-2c8c-4880-bd5c-73bd00814b89.png))
-    * id - int, UNSIGNED, AUTO_INCREMENT
-    * title - varchar(100)
-    * author - varchar(50)
-    * visibility - varchar(7)
-    * payload - json, nullable
-    * createAt - datetime, default: CURRENT_TIMESTAMP
-    * modifyAt - datetime, default: CURRENT_TIMESTAMP, on UPDATE: CURRENT_TIMESTAMP
+* `PREFIX_user_settings structure:`
 
-3. Create the followings connections between tables:
+| NAME | TYPE | ATTRIBUTES | NULL | DEFAULT | EXTRA |
+|:-----|:-----|:-----------|:-----|:--------|:------|
+| user_login | varchar(60) || No | None ||
+| count_of_docs | int || No | 6 ||
+| smoothness_of_anims | tinyint(1) || No | 0 ||
+
+* `PREFIX_documents structure:`
+
+| NAME | TYPE | ATTRIBUTES | NULL | DEFAULT | EXTRA |
+|:-----|:-----|:-----------|:-----|:--------|:------|
+| id | int | UNSIGNED | No | None | AUTO_INCREMENT |
+| title | varchar(100) || No | Document ||
+| author | varchar(50) || No | None ||
+| visibility | varchar(7) || No | private ||
+| payload | json || Yes | NULL ||
+| createAt | datetime || No | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+| modifyAt | datetime | on update CURRENT_TIMESTAMP | No | CURRENT_TIMESTAMP | DEFAULT_GENERATED ON UPDATE CURRENT_TIMESTAMP |
+
+3. Create the followings relations between tables:
+  
   * `users` & `user_settings`: one-to-one (by login and user_login fields)
-  ![image](https://user-images.githubusercontent.com/72695696/134939613-e729c1ae-3432-403e-b2ec-882f25f4041a.png)
+
+![image](https://user-images.githubusercontent.com/72695696/135108547-72fd37f3-f190-48bd-8f65-3b56d0908deb.png)
 
   * `documents` & `users`: one-to-many (by login and author fields)
-  ![image](https://user-images.githubusercontent.com/72695696/134939656-51f3fcaf-fade-4661-ae9b-f592805a0384.png)
 
-  
+![image](https://user-images.githubusercontent.com/72695696/135108633-a691b028-6910-419d-9aa0-f9b4a7446109.png)
+
 #### Organization
 
 1. Check all configs in the file `config.php` and change them if it is necessary.
@@ -197,5 +208,6 @@ Project Link: [https://github.com/askozyra/jsoned][project-url]
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [project-url]: https://github.com/askozyra/jsoned
-[project-sc]: https://user-images.githubusercontent.com/72695696/134930085-58c66843-a08a-4198-a0a8-3c0ab91d933d.png
+[project-sc]: https://user-images.githubusercontent.com/72695696/135106422-47279b88-dce1-4219-a7f7-6a4f786c8c6b.png
+<!--          https://user-images.githubusercontent.com/72695696/134930085-58c66843-a08a-4198-a0a8-3c0ab91d933d.png -->
 [project-ico]: https://user-images.githubusercontent.com/72695696/134879629-7c0e7a52-c5b3-484c-b774-82290cf00e9b.png
