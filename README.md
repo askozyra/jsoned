@@ -85,7 +85,7 @@ Get the project:
 
 #### Database
 
-1. Create db named `json_db` (tmp step, it will be removed later).
+1. Create a database with the name, specified in `config.php`
 
 2. Create three tables with prefix which are listed in `config.php`:
 
