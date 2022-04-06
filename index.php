@@ -2,7 +2,7 @@
   session_start();
 
   require("api/connect.php");
-  require("docs/functions.php");
+  require("general_functions.php");
 
   if(isLogined($dbh)){
     Redirect("me");
